@@ -1,7 +1,7 @@
 import './App.css';
 import SceneInit from './lib/SceneInit';
-import { useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect, useRef, useLayoutEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ProjectCarousel from './components/ProjectCarousel';
 import AboutMe from './components/AboutMe';
 import NavHeader from './components/NavHeader';
@@ -10,6 +10,14 @@ import AcademicHistory from './components/AcademicHistory';
 import WorkExperience from './components/WorkExperience';
 import Sudoku from './components/Sudoku';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const MainPage = () => {
   const { changeColorTheme, colorTheme, isDarkMode } = useTheme();
@@ -84,6 +92,7 @@ function App() {
   return (
     <Router>
       <ThemeProvider>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/sudoku" element={<Sudoku />} />
