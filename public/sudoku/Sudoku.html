@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 		<title>Sudoku</title>
 		<style>
 html, body, #canvas {
@@ -20,6 +20,8 @@ body {
 
 #canvas {
 	display: block;
+	padding-bottom: env(safe-area-inset-bottom);
+    box-sizing: border-box;
 }
 
 #canvas:focus {
