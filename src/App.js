@@ -1,15 +1,17 @@
 import './App.css';
 import SceneInit from './lib/SceneInit';
 import { useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProjectCarousel from './components/ProjectCarousel';
 import AboutMe from './components/AboutMe';
 import NavHeader from './components/NavHeader';
 import Footer from './components/Footer';
 import AcademicHistory from './components/AcademicHistory';
 import WorkExperience from './components/WorkExperience';
+import Sudoku from './components/Sudoku';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 
-const AppContent = () => {
+const MainPage = () => {
   const { changeColorTheme, colorTheme, isDarkMode } = useTheme();
   
   // Store the scene instance in a ref to persist it across re-renders
@@ -80,9 +82,14 @@ const AppContent = () => {
 
 function App() {
   return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/sudoku" element={<Sudoku />} />
+        </Routes>
+      </ThemeProvider>
+    </Router>
   );
 }
 
