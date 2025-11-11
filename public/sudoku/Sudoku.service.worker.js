@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1762823158|775815601';
+const CACHE_VERSION = '1762824387|2004309278';
 /** @type {string} */
 const CACHE_PREFIX = 'Sudoku-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
